@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios y Contacto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: 'Roboto', sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
+    header { background: linear-gradient(135deg,#6C63FF,#9088FF); color:#fff; text-align:center; padding:80px 20px; }
+    header h1 { font-size:3rem; margin-bottom:10px; }
+    header p { font-size:1.2rem; }
+
+    nav { display:flex; justify-content:center; gap:30px; background:#fff; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000; }
+    nav a { text-decoration:none; color:#6C63FF; font-weight:bold; transition:0.3s; }
+    nav a:hover { color:#333; }
+
+    section { padding:60px 20px; max-width:1200px; margin:0 auto; opacity:0; transform:translateY(30px); transition:all 0.6s ease-out; }
+    section.visible { opacity:1; transform:translateY(0); }
+
+    .services, .testimonials, .benefits, .faqs { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
+
+    .service-card, .testimonial-card, .benefit-card, .faq-card {
+      background:#fff; border-radius:15px; padding:30px 20px; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; position:relative;
+    }
+    .service-card:hover, .testimonial-card:hover, .benefit-card:hover, .faq-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
+
+    .service-card h2, .testimonial-card h3, .benefit-card h3, .faq-card h3 { color:#6C63FF; margin-bottom:15px; }
+    .service-card p, .testimonial-card p, .benefit-card p, .faq-card p { font-weight:bold; font-size:1.1rem; }
+
+    .whatsapp-btn { display:inline-block; background:#25D366; color:white; padding:12px 20px; border-radius:50px; text-decoration:none; margin-top:15px; transition:0.3s; }
+    .whatsapp-btn:hover { background:#1ebe57; }
+
+    .testimonial-card::before { content:"“"; font-size:3rem; color:#6C63FF; position:absolute; top:10px; left:20px; }
+
+    .contact-form { background:#fff; padding:50px 30px; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.1); max-width:600px; margin:0 auto; position:relative; }
+    .contact-form h2 { text-align:center; margin-bottom:30px; color:#6C63FF; }
+    .contact-form label { display:block; margin-bottom:5px; font-weight:bold; }
+    .contact-form input, .contact-form textarea { width:100%; padding:12px 15px; margin-bottom:20px; border-radius:8px; border:1px solid #ccc; font-size:1rem; }
+    .contact-form button { background:#6C63FF; color:white; border:none; padding:15px 30px; font-size:1rem; border-radius:8px; cursor:pointer; width:100%; transition:0.3s; }
+    .contact-form button:hover { background:#4b45d6; }
+
+    footer { text-align:center; background:#333; color:#fff; padding:30px 20px; margin-top:40px; }
+
+    #toast { visibility:hidden; min-width:250px; margin-left:-125px; background-color:#6C63FF; color:#fff; text-align:center; border-radius:8px;
+      padding:16px; position:fixed; z-index:10000; left:50%; bottom:30px; font-size:17px; opacity:0; transition:opacity 0.5s, bottom 0.5s; }
+    #toast.show { visibility:visible; opacity:1; bottom:50px; }
+
+    .about, .benefits, .faqs { margin-bottom:40px; }
+    .about p { font-size:1.1rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mis Servicios</h1>
+    <p>Explora los servicios que ofrezco y contáctame fácilmente</p>
+  </header>
+
+  <nav>
+    <a href="#services">Servicios</a>
+    <a href="#testimonials">Testimonios</a>
+    <a href="#about">Sobre mí</a>
+    <a href="#benefits">Beneficios</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+
+  <!-- Servicios -->
+  <section id="services">
+    <h2 style="text-align:center; color:#6C63FF; margin-bottom:40px;">Servicios</h2>
+    <div class="services">
+      <div class="service-card">
+        <h2>Terapia Psicológica</h2>
+        <p>$55</p>
+        <a class="whatsapp-btn" href="https://wa.me/56997246749?text=Hola,+quiero+información+sobre+Terapia+Psicológica">WhatsApp</a>
+      </div>
+      <div class="service-card">
+        <h2>Acompañamiento Grupal</h2>
+        <p>$170</p>
+        <a class="whatsapp-btn" href="https://wa.me/56997246749?text=Hola,+quiero+información+sobre+Acompañamiento+Grupal">WhatsApp</a>
+      </div>
+      <div class="service-card">
+        <h2>Acompañamiento Individual</h2>
+        <p>$250</p>
+        <a class="whatsapp-btn" href="https://wa.me/56997246749?text=Hola,+quiero+información+sobre+Acompañamiento+Individual">WhatsApp</a>
+      </div>
+      <div class="service-card">
+        <h2>Sesión Tarot Transepersonal</h2>
+        <p>$55</p>
+        <a class="whatsapp-btn" href="https://wa.me/56997246749?text=Hola,+quiero+información+sobre+Tarot+Transepersonal">WhatsApp</a>
+      </div>
+      <div class="service-card">
+        <h2>Tarot vía WhatsApp (6 preguntas)</h2>
+        <p>$30</p>
+        <a class="whatsapp-btn" href="https://wa.me/56997246749?text=Hola,+quiero+información+sobre+Tarot+via+WhatsApp">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonials">
+    <h2 style="text-align:center; color:#6C63FF; margin-bottom:40px;">Testimonios</h2>
+    <div class="testimonials">
+      <div class="testimonial-card"><p>La terapia me ayudó a superar miedos. ¡Recomiendo totalmente!</p><h3>– Ana R.</h3></div>
+      <div class="testimonial-card"><p>El acompañamiento grupal fue increíble.</p><h3>– Juan P.</h3></div>
+      <div class="testimonial-card"><p>El tarot fue sorprendentemente preciso.</p><h3>– Valentina M.</h3></div>
+      <div class="testimonial-card"><p>El acompañamiento individual fortaleció mi autoestima.</p><h3>– Ricardo C.</h3></div>
+      <div class="testimonial-card"><p>El tarot vía WhatsApp respondió todas mis preguntas.</p><h3>– Claudia F.</h3></div>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="about" class="about">
+    <h2 style="text-align:center; color:#6C63FF; margin-bottom:40px;">Sobre mí</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto;">
+      Soy especialista en terapia psicológica y técnicas de desarrollo personal. Mi objetivo es ayudarte a superar obstáculos, mejorar tu bienestar y encontrar claridad en la vida.
+    </p>
+  </section>
+
+  <!-- Beneficios -->
+  <section id="benefits" class="benefits">
+    <h2 style="text-align:center; color:#6C63FF; margin-bottom:40px;">Beneficios</h2>
+    <div class="benefits">
+      <div class="benefit-card"><h3>Apoyo personalizado</h3><p>Sesiones adaptadas a tus necesidades.</p></div>
+      <div class="benefit-card"><h3>Resultados comprobados</h3><p>Mejoras en tu bienestar emocional.</p></div>
+      <div class="benefit-card"><h3>Comodidad</h3><p>Sesiones presenciales o vía WhatsApp.</p></div>
+      <div class="benefit-card"><h3>Flexibilidad</h3><p>Opciones individuales, grupales y tarot.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faqs" class="faqs">
+    <h2 style="text-align:center; color:#6C63FF; margin-bottom:40px;">Preguntas frecuentes</h2>
+    <div class="faqs">
+      <div class="faq-card"><h3>¿Cómo agendo una sesión?</h3><p>Directamente por WhatsApp o desde el formulario.</p></div>
+      <div class="faq-card"><h3>¿Cuánto dura una sesión?</h3><p>Individual: 50-60 min. Grupal: 90 min.</p></div>
+      <div class="faq-card"><h3>¿Se puede cancelar?</h3><p>Sí, con aviso de al menos 24 horas.</p></div>
+      <div class="faq-card"><h3>¿Cómo funciona el tarot vía WhatsApp?</h3><p>Envíame tus preguntas y recibirás respuestas claras.</p></div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contact">
+    <div class="contact-form">
+      <h2>Contacto</h2>
+      <form id="contactForm">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="from_name" required>
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="reply_to" required>
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+  </footer>
+
+  <div id="toast"></div>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("njDN1bs6sgFPPOXIP");
+    function showToast(message, success=true){
+      const toast = document.getElementById('toast');
+      toast.innerText = message;
+      toast.style.backgroundColor = success ? '#6C63FF' : '#FF5C5C';
+      toast.className = 'show';
+      setTimeout(()=>{ toast.className = toast.className.replace('show',''); }, 4000);
+    }
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      emailjs.sendForm('service_3wl2g6s', 'template_daimm6l', this)
+        .then(() => { showToast('Mensaje enviado correctamente!'); this.reset(); })
+        .catch(err => { showToast('Error al enviar el mensaje', false); });
+    });
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+    }, { threshold:0.2 });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
